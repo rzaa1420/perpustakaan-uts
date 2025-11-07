@@ -1,9 +1,18 @@
 <?php
-define('MY_APP', true);
+session_start();
+
+if (!isset($_SESSION['admin_logged_in'])) {
+    header('Location: login.php');
+    exit;
+}
+define('MY_APP', true); // Ini berfungsi untuk proteksi, ada di halaman page.
+// Jadi dashboard.php tidak bisa diakses langsung dari url: localhost/pages/dashboard.php dia harus melewati index
+// Jadi localhost/index.php?hal=dashboard
 
 // Get hal
 $page = isset($_GET['hal']) ? $_GET['hal'] : 'dashboard';
-// title untuk di header
+// title untuk di header. ucwords untuk merubah misal ucwords("halaman login") menjadi halaman login
+// str_replace digunakan untuk mereplace, misalkan str_replace("-", " ", "halaman-login") hasilnya akan menjadi halaman login
 $title = ucwords(str_replace('-', ' ', $page));
 ?>
 

@@ -14,6 +14,6 @@ $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
 // error handling
 if ($mysqli->connect_error) {
-    die("Koneksi Gagal: " . $mysqli->connector_error);
+    die("Koneksi Gagal: " . $mysqli->connect_error);
 }
 ?>

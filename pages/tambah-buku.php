@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Proses upload cover
     $cover_name = null;
     if (!empty($_FILES['cover']['name'])) {
-        $target_dir  = "uploads/buku";
+        $target_dir  = "uploads/buku/";
         $file_name   = time() . '_' . basename($_FILES['cover']['name']);
         $target_file = $target_dir . $file_name;
 
